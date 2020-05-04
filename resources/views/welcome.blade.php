@@ -1,100 +1,75 @@
+
+<!--
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-
+Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+--
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor Sample</title>
+    <script src="../ckeditor/ckeditor.js"></script>
+    <script src="../ckeditor/samples/js/sample.js"></script>
+    <link rel="stylesheet" href="../ckeditor/samples/css/samples.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Try the latest sample of CKEditor 4 and learn more about customizing your WYSIWYG editor with endless possibilities.">
+</head>
+<body id="main">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<main>
+    <div class="adjoined-top">
+        <div class="grid-container">
+            <div class="content grid-width-100">
+                <h1>Ejemplo</h1>
+                <p>
+                    Ejemplo
+                </p>
             </div>
         </div>
-    </body>
+    </div>
+    <from method="POST" action="{{route('save-post')}}" >
+
+        <div class="adjoined-bottom">
+            <div class="grid-container">
+                <div class="grid-width-100">
+                    <div id="editor">
+                        <h1>Hola mundo!</h1>
+                        <p>Este es el inicio del texto.</p>
+                        @csrf
+                    </div>
+                </div>
+                <input type="submit" value="Enviar">
+            </div>
+        </div>
+    </from>
+</main>
+
+
+<script>
+    initSample();
+</script>
+
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laravel 5 Ckeditor Image Upload Example - ItSolutionStuff.com</title>
+    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+</head>
+<body>
+
+<h1>Laravel 5 Ckeditor Image Upload Example - ItSolutionStuff.com</h1>
+<textarea name="editor1"></textarea>
+
+<script type="text/javascript">
+    CKEDITOR.replace('editor1', {
+        filebrowserUploadUrl: "{{route('save-post', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
+
+</body>
 </html>
