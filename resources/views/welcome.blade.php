@@ -1,10 +1,8 @@
-
-<!--
 <!DOCTYPE html>
-<!-
+<!--
 Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
---
+-->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -23,7 +21,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
             <div class="content grid-width-100">
                 <h1>Ejemplo</h1>
                 <p>
-                    Ejemplo
+                    Carga una imagen y la podrass observar en 'public/uploads'
                 </p>
             </div>
         </div>
@@ -46,30 +44,11 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 </main>
 
 
-<script>
-    initSample();
-</script>
-
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel 5 Ckeditor Image Upload Example - ItSolutionStuff.com</title>
-    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-</head>
-<body>
-
-<h1>Laravel 5 Ckeditor Image Upload Example - ItSolutionStuff.com</h1>
-<textarea name="editor1"></textarea>
-
 <script type="text/javascript">
-    CKEDITOR.replace('editor1', {
+    CKEDITOR.replace('editor', {
         filebrowserUploadUrl: "{{route('save-post', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
 </script>
-
 </body>
 </html>
