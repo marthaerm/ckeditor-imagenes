@@ -37,7 +37,6 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
                         @csrf
                     </div>
                 </div>
-                <input type="submit" value="Enviar">
             </div>
         </div>
     </from>
