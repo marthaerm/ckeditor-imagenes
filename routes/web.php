@@ -20,6 +20,5 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::post('save-post', 'PostController@save')->name('save-post');
-
-Route::get('save-post', 'PostController@save');
+Route::post('save-img', 'PostController@save')->name('save-img');
+Route::post('save-post', 'PostController@store')->name('save-post');

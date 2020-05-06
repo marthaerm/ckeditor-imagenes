@@ -8,10 +8,8 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     <meta charset="utf-8">
     <title>CKEditor Sample</title>
     <script src="../ckeditor/ckeditor.js"></script>
-    <script src="../ckeditor/samples/js/sample.js"></script>
     <link rel="stylesheet" href="../ckeditor/samples/css/samples.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Try the latest sample of CKEditor 4 and learn more about customizing your WYSIWYG editor with endless possibilities.">
 </head>
 <body id="main">
 
@@ -26,28 +24,37 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
             </div>
         </div>
     </div>
-    <from method="POST" action="{{route('save-post')}}" >
-
+    <form method="POST" action="{{route('save-post')}}" >
         <div class="adjoined-bottom">
             <div class="grid-container">
                 <div class="grid-width-100">
-                    <div id="editor">
+                    <textarea name="editor" id="editor">
                         <h1>Hola mundo!</h1>
                         <p>Este es el inicio del texto.</p>
-                        @csrf
-                    </div>
+                    </textarea>
                 </div>
+                @csrf
+                <br>
+                <input type="submit" value="Enviar">
             </div>
         </div>
-    </from>
+    </form>
 </main>
 
 
 <script type="text/javascript">
-    CKEDITOR.replace('editor', {
-        filebrowserUploadUrl: "{{route('save-post', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
+
+    var editor = CKEDITOR.replace('editor', {
+        // seleccion la ruta que seguirá el navegador para almacenar la imagen
+        // la ruta debe llevar a una funcion especifica del controlador que almacenará la imagen
+        filebrowserUploadUrl: "{{route('save-img', ['_token' => csrf_token() ])}}",
+        // metodo que se utilizará para cargar la imagen
+        filebrowserUploadMethod: 'form',
+        // incluir plugin "easyimage"
+        extraPlugins: 'simage'
     });
+
+
 </script>
 </body>
 </html>
