@@ -1,60 +1,34 @@
-
-<!DOCTYPE html>
-<!-- Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
--->
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>CKEditor Sample</title>
-    <script src="../ckeditor/ckeditor.js"></script>
-    <link rel="stylesheet" href="../ckeditor/samples/css/samples.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-</head>
-<body id="main">
-
-<main>
-    <div class="adjoined-top">
-        <div class="grid-container">
-            <div class="content grid-width-100">
-                <h1>Ejemplo</h1>
-                <p>
-                    Carga una imagen y la podrass observar en 'public/uploads'
-                </p>
-            </div>
+@extends('templates.app')
+@section('content')
+        <div class="jumbotron">
+            <h1 class="display-3">Ajax</h1>
+            <p class="lead">Ejemplo de envio de datos con ajax</p>
+            <hr class="my-4">
         </div>
-    </div>
-    <form method="POST" action="{{route('save-post')}}" >
-        <div class="adjoined-bottom">
-            <div class="grid-container">
-                <div class="grid-width-100">
-                    <textarea name="editor" id="editor">
-                        <h1>Hola mundo!</h1>
-                        <p>Este es el inicio del texto.</p>
-                    </textarea>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Laravel - Ejemplo</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Ckeditor</h4>
+                        <p class="card-text">Carga de imágenes.</p>
+                    </div>
                 </div>
-                @csrf
-                <br>
-                <input type="submit" value="Enviar">
+            </div>
+
+            <div class="col-md-4">
+                <a href="{{route('ajax-sample')}}">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">Laravel - Ejemplo</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Ajax</h4>
+                            <p class="card-text">Envío de datos a un controller.</p>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
-    </form>
-</main>
 
-
-<script type="text/javascript">
-
-    var editor = CKEDITOR.replace('editor', {
-        // seleccion la ruta que seguirá el navegador para almacenar la imagen
-        // la ruta debe llevar a una funcion especifica del controlador que almacenará la imagen
-        filebrowserUploadUrl: "{{route('save-img', ['_token' => csrf_token() ])}}",
-        // metodo que se utilizará para cargar la imagen
-        filebrowserUploadMethod: 'form',
-        // incluir plugin "easyimage"
-        extraPlugins: 'simage'
-    });
-
-
-</script>
-</body>
-</html>
+@endsection

@@ -18,11 +18,14 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('welcome');
-});
+})->name('home');
 
 /**
  * CkEditor
  */
+Route::get('/ckeditor-sample', function () {
+    return view('ckeditor-sample');
+})->name('ckeditor_sample');
 Route::post('save-img', 'PostController@save')->name('save-img');
 Route::post('save-post', 'PostController@store')->name('save-post');
 
@@ -33,7 +36,7 @@ Route::post('save-post', 'PostController@store')->name('save-post');
 
 Route::get('ajax-sample', function(){
     return view('ajax-sample');
-});
+})->name('ajax-sample');
 
 Route::post('ajax-request', 'AjaxController@chooseRandomPet')->name('ajax-request');
 
