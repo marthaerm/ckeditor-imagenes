@@ -79,6 +79,13 @@
                 </div>
             </div>
         </div>
+        <div class="mb-4"></div>
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+            <div class="card-header">Extra</div>
+            <div class="card-body">
+                <h4 class="card-title">Retos</h4>
+                <p class="card-text">Crear una única funcion que permita realizar cualquier petición ajax.</p>
+            </div>
+        </div>
 
-        Retos: crear una sola funcion a utilizar cuantas veces sea necesario.
 @endsection
