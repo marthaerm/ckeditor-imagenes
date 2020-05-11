@@ -36,7 +36,7 @@
 
                 <h3>Mostrar respuesta en elemento html</h3>
                 <p>
-                    Al seleccionar una opcion del select, se enviará el numero correspondiente a la mascota elegida y la fucion del controller regresara el mensaje de la mascota que se ha elegido
+                    Al seleccionar una opcion del select, se enviará el numero correspondiente a la mascota elegida y la fucion del controller regresara el mensaje de la mascota que se ha elegido para mostrarse en la tarjeta de abajo
                 </p>
                 <select class="custom-select" id="insertPet">
                     <option selected="">Selecciona una mascota</option>
@@ -59,7 +59,7 @@
 
                 <h3>Enviar contenido de input y operar en controller</h3>
                 <p>
-                    Al seleccionar una opcion del select, se enviará el numero correspondiente a la mascota elegida y la fucion del controller regresara el mensaje de la mascota que se ha elegido
+                    Operación de suma básica. Se ingresan dos números en los inputs de abajo y al dar click en el botón azul, se envia la solicitud a una función del controlador para realizar la suma y regresar la respuesta que se mostrara en la tarjeta de abajo.
                 </p>
 
                 <div class="form-group">
