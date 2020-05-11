@@ -88,4 +88,102 @@
             </div>
         </div>
 
+        <script type="text/javascript">
+            // Agregar el csrf token en los headers de la peticion
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            ////// Envíar datos con un botón
+            // Selector de JQuery
+            // Selecciona el elemento con el id "pet"
+            // La funcion de ejecuta con el evento "click"
+            $("#pet").click(function(event){
+                //Generar un número aleatorio
+                var pet = Math.floor(Math.random() * 2);
+                // Llamada al a funcion que hace la peticion de ajax
+                choosePet(pet);
+            });
+            ////// Envíar datos con un select
+            $("#selectPet").change(function(event){
+                // Obtener el valor del select
+                var pet = $("#selectPet").val();
+                choosePet(pet);
+            });
+            // Funcion que realiza la peticion Ajax
+            function choosePet(pet) {
+                // Ajax request con Jquery
+                $.ajax({
+                    // url a la que se hará la petición
+                    url:'ajax-request',
+                    // datos en formato json
+                    data:{'pet':pet},
+                    // tipo de request, en este caso "post"
+                    type:'post',
+                    // Funcion ejecutada en caso de exito
+                    success: function (response) {
+                        alert(response);
+                    },
+                    statusCode: {
+                        // Muestra una alerta de acuerdo al error especificado
+                        404: function() {
+                            alert('web not found');
+                        }
+                    },
+                    // Funcion ejecutada en caso de error
+                    error:function(x,xs,xt){
+                        // Muestra una alerta con el mensaje de error si es que hay alguno
+                        alert('error: ' + JSON.stringify(x) +"\n error string: "+ xs + "\n error throwed: " + xt);
+                    }
+                });
+            }
+            ////// Mostrar respuesta en elemento html
+            $("#insertPet").change(function(event){
+                // Obtener el valor del select
+                var pet = $("#insertPet").val();
+                $.ajax({
+                    url:'ajax-request',
+                    data:{'pet':pet},
+                    type:'post',
+                    success: function (response) {
+                        $( "#petText" ).text( response );
+                    },
+                    statusCode: {
+                        // Muestra una alerta de acuerdo al error especificado
+                        404: function() {
+                            alert('web not found');
+                        }
+                    },
+                    error:function(x,xs,xt){
+                        // Muestra una alerta con el mensaje de error si es que hay alguno
+                        alert('error: ' + JSON.stringify(x) +"\n error string: "+ xs + "\n error throwed: " + xt);
+                    }
+                });
+            });
+            ////// Enviar contenido de input y operar en controller
+            $("#addition").click(function(event){
+                // Obtener el valor del select
+                var num1 = $("#num1").val();
+                var num2 = $("#num2").val();
+                $.ajax({
+                    url:'addition',
+                    data:{'num1':num1,'num2':num2},
+                    type:'post',
+                    success: function (response) {
+                        $( "#additionRes" ).text( response );
+                    },
+                    statusCode: {
+                        // Muestra una alerta de acuerdo al error especificado
+                        404: function() {
+                            alert('web not found');
+                        }
+                    },
+                    error:function(x,xs,xt){
+                        // Muestra una alerta con el mensaje de error si es que hay alguno
+                        alert('error: ' + JSON.stringify(x) +"\n error string: "+ xs + "\n error throwed: " + xt);
+                    }
+                });
+            });
+        </script>
 @endsection
