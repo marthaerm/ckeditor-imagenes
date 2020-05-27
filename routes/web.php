@@ -41,3 +41,20 @@ Route::get('ajax-sample', function(){
 Route::post('ajax-request', 'AjaxController@chooseRandomPet')->name('ajax-request');
 
 Route::post('addition', 'AjaxController@addition')->name('addition');
+
+/**
+ * Modal
+ */
+Route::get('modal-sample', function(){
+    return view('modal-sample');
+})->name('modal-sample');
+
+Route::get('modal-data/{data}', 'ModalController@show')->name('modal-data');
+
+
+/**
+ * API
+ */
+Route::get('api-sample', function(){
+    return view('api-sample');
+})->name('api-sample');

@@ -29,6 +29,32 @@
                 </a>
 
             </div>
+
+            <div class="col-md-4">
+                <a href="{{route('api-sample')}}">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">Laravel - Ejemplo</div>
+                        <div class="card-body">
+                            <h4 class="card-title">APIs</h4>
+                            <p class="card-text">Manjeo y desarrollo de una API.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="col-md-4">
+                <a href="{{route('modal-sample')}}">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">Laravel - Ejemplo</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Modal</h4>
+                            <p class="card-text">Envío de información por medio de una ventana modal.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
         </div>
 
 @endsection
